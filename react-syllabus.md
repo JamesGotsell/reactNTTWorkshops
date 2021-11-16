@@ -3,11 +3,14 @@
 
 # week one
 
-what is react
-
+what is react?
+vdom 
+jsx 
+react without jsx
+react.createElement 
 
 # week two 
-conponents 
+components 
 state vs props 
 class based components 
 functional components 
@@ -23,7 +26,7 @@ state within react apps
 context api 
 redux 
 mobx 
-recoli
+recoil
 
 # week five 
 unit testing 
