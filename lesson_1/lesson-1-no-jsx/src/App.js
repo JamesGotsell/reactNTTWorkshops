@@ -5,7 +5,7 @@ import PersonNoJSX from './Components/PersonNoJSX';
 import ComponentWithJSX  from './Components/ComponentWithJSX'
 import Demo from './Hooks/CustomHooks/Demo'
 
-
+const [toggle,toggleFun] = useToggle();
 function App() {
   return (
       <>
