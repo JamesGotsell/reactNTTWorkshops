@@ -3,16 +3,26 @@ import './App.css';
 import HeaderNoJSX  from './Components/HeaderNoJSx'
 import PersonNoJSX from './Components/PersonNoJSX';
 import ComponentWithJSX  from './Components/ComponentWithJSX'
-import Demo from './Hooks/CustomHooks/Demo'
+import { useBoomTing, useName } from './Hooks/useToggle'
+import Boom from './Components/Boom';
 
-const [toggle,toggleFun] = useToggle();
 function App() {
+  const [toggle, toggleFun ] = useBoomTing() 
+
+  const { name, nameFun } =  useName() 
+  
   return (
       <>
         <HeaderNoJSX />
         <PersonNoJSX />
         <ComponentWithJSX />
-        <Demo/>
+        <p>{ name }</p>
+        <p> { toggle ? " on" : "off"}</p>
+        <button onClick={() => toggleFun()}> toggle </button>
+        <button onClick={() => nameFun('dyllan')}> change name to dyllan </button>
+
+        <br/>
+        <Boom />
       </>
   );
 }
