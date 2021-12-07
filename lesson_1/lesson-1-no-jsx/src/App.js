@@ -5,6 +5,8 @@ import PersonNoJSX from './Components/PersonNoJSX';
 import ComponentWithJSX  from './Components/ComponentWithJSX'
 import { useBoomTing, useName } from './Hooks/useToggle'
 import Boom from './Components/Boom';
+import RickAndMorty from './Components/RickAndMorty';
+
 
 function App() {
   const [toggle, toggleFun ] = useBoomTing() 
@@ -20,7 +22,8 @@ function App() {
         <p> { toggle ? " on" : "off"}</p>
         <button onClick={() => toggleFun()}> toggle </button>
         <button onClick={() => nameFun('dyllan')}> change name to dyllan </button>
-
+        <RickAndMorty/>  
+        
         <br/>
         <Boom />
       </>
