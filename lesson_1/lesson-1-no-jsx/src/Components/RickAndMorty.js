@@ -17,8 +17,10 @@ class RickAndMorty extends Component {
         })
         
     }
-
-    logState = () => {
+        //create a character card component - functional component - pass state as props 
+    
+    
+        logState = () => {
         console.log(this.state.characters)
     }
 
@@ -26,10 +28,10 @@ class RickAndMorty extends Component {
         return(
            <div>
          <h1>Rick And Morty</h1>
-         <button onClick={() => this.logState()} >check state </button>
-        create a character card component - functional component - pass state as props 
+         <button onClick={() => this.logState()} >Fetch API Results  </button>
+        
         {
-            this.state.characters.map((item) => { return <><p>{item.name} </p></>})
+            this.state.characters.map((item) => { return <div key={item.id}><p>{item.name} <img src ={item.image}/> </p></div>})
         }
         </div>
         )
