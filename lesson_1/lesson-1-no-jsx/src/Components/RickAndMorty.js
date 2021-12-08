@@ -1,5 +1,17 @@
 import React, {Component } from 'react'
-
+const Card=(props)=>{
+       
+    return(
+        <div>    
+           
+                <p>{props.name} 
+                <img src ={props.image}/>
+                </p>
+    
+        
+        </div>  
+    )
+}
 class RickAndMorty extends Component {
     constructor(props) {
         super(props);
@@ -17,8 +29,13 @@ class RickAndMorty extends Component {
         })
         
     }
-        //create a character card component - functional component - pass state as props 
+       
     
+    
+    
+    
+    //create a character card component - functional component - pass state as props 
+        
     
         logState = () => {
         console.log(this.state.characters)
@@ -29,10 +46,7 @@ class RickAndMorty extends Component {
            <div>
          <h1>Rick And Morty</h1>
          <button onClick={() => this.logState()} >Fetch API Results  </button>
-        
-        {
-            this.state.characters.map((item) => { return <div key={item.id}><p>{item.name} <img src ={item.image}/> </p></div>})
-        }
+            <card/>
         </div>
         )
     }
