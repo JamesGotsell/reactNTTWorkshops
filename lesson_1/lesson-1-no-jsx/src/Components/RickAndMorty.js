@@ -18,18 +18,11 @@ class RickAndMorty extends Component {
         })
         
     }
-       
-    
-     
+
     logState = () => {
         console.log(this.state.characters)
     }
     
-    
-    //create a character card component - functional component - pass state as props 
-        
-   
-
     render() {
         return(
            <div>

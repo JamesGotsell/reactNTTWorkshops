@@ -6,8 +6,6 @@ export const Card = ({name, image, gender}) => {
                 <p>{name} </p>
                 <img alt={name} src ={image}/>
                 <p>{gender}</p>
-                
-
         </div>  
     )
 }
