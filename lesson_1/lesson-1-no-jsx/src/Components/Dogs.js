@@ -1,6 +1,4 @@
 import  React,{Component } from 'react'
-import { Card } from './Card/Card';
-
 
 class FunnyDogs extends Component{
     constructor(props){
@@ -12,7 +10,11 @@ class FunnyDogs extends Component{
     }
     componentDidMount(){
         fetch('https://random.dog/woof.json')
+            .then(response => 
+                response.json()
+            )
             .then(response => {
+                console.log(response)
                 this.setState({
                     url: response.url
                 })
@@ -33,45 +35,11 @@ class FunnyDogs extends Component{
                     FunnyDogs
                 </h1>
                 <button onClick={() => this.logState()}>Log Dog Api Results</button>
+                <img alt='dog' width={'100px'} height={'100px'} src={this.state.url} />
             </>
         )
     }
 }
 
-
-
-// class FunnyDogs extends Component {
-//     constructor(props) {
-//         super(props);
-
-//         this.state = {
-//             dogs: []
-//         };
-//     }
-//     componentDidMount(){
-//         fetch().then((resp) => resp.json())
-//             .then(resp => {
-//                 this.setState({
-//                     dogs: resp.results
-//                 })
-//          })   
-       
-//         }
-
-//         logstate=()=>{
-//             console.log(this.state.dogs)
-//         }
-
-//         render(){
-//             return(
-//                 <>
-//                     <button onClick={() => this.logstate()}>Log Dog Api Results</button>
-//                     {this.state.dogs.map((item) => {return <Card {...item}/>})}
-//                      {this.state.dogs.map((item) => {return <Card {...item}/>})}
-                    
-//                 </>
-//             )
-//         }
-// }
 
 export default FunnyDogs
