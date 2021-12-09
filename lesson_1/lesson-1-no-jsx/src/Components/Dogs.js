@@ -29,10 +29,6 @@ class FunnyDogs extends Component{
         console.log(this.state.url)
     }
 
-    // function that fectches new data onClick
-
-    //  button - onclick function 
-
     newDog = () => {
         fetch('https://random.dog/woof.json')
             .then(response => 
@@ -57,7 +53,7 @@ class FunnyDogs extends Component{
                 </h1>
                 <button onClick={() => this.newDog()}>new Dog Api Results</button>
                 <button onClick={() => this.logState()}>Log Dog Api Results</button>
-                <img alt='dog' width={'100px'} height={'100px'} src={this.state.url} />
+                <img alt='dog' width={'300px'} height={'300px'} src={this.state.url} />
             </>
         )
     }

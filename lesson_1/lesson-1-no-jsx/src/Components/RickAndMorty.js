@@ -13,16 +13,7 @@ class RickAndMorty extends Component {
     componentDidMount(){
          fetch('https://rickandmortyapi.com/api/character').then((resp) => resp.json())
         .then(resp => { 
-            /**
-             * 
-             * info:
-            count: 826
-            next: "https://rickandmortyapi.com/api/character?page=2"
-            pages: 42
-            prev: null
-            [[Prototype]]: Object
-            results: [array] 
-             */
+          
             console.log(resp)
             this.setState({
                 characters: resp.results
@@ -34,12 +25,33 @@ class RickAndMorty extends Component {
     logState = () => {
         console.log(this.state.characters)
     }
-    //  function to get next page of char - use dog component as ref
+    
+    newChars = () => {
+        fetch('https://rickandmortyapi.com/api/character?page=2' + 1)
+            .then(response => 
+                response.json()
+            )
+            .then(response => {
+                console.log(response)
+                this.setState({
+                    characters: response.results
+                })
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+   
+    //  function to get next page of char
+       // function that fectches new data onClick
+
+        //  button - onclick function 
     render() {
         return(
            <div>
             <h1>Rick And Morty</h1>
             <button onClick={() => this.logState()} >Log API Results  </button>
+            <button onClick={() => this.newChars()}> New Characters From Rick And Morty</button>
             {this.state.characters.map((item) => { return <Card {...item} />}) } 
         </div>
         )
