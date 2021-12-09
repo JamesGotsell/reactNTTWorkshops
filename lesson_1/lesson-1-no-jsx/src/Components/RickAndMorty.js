@@ -7,11 +7,23 @@ class RickAndMorty extends Component {
 
         this.state = {
             characters: []
+            // next https://rickandmortyapi.com/api/character?page=2
         };
     }
     componentDidMount(){
          fetch('https://rickandmortyapi.com/api/character').then((resp) => resp.json())
         .then(resp => { 
+            /**
+             * 
+             * info:
+            count: 826
+            next: "https://rickandmortyapi.com/api/character?page=2"
+            pages: 42
+            prev: null
+            [[Prototype]]: Object
+            results: [array] 
+             */
+            console.log(resp)
             this.setState({
                 characters: resp.results
             })
@@ -22,7 +34,7 @@ class RickAndMorty extends Component {
     logState = () => {
         console.log(this.state.characters)
     }
-    
+    //  function to get next page of char - use dog component as ref
     render() {
         return(
            <div>
