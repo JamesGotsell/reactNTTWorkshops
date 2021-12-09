@@ -55,7 +55,7 @@ class RickAndMorty extends Component {
             <h1>Rick And Morty</h1>
             <button onClick={() => this.logState()} >Log API Results  </button>
             <button onClick={() => this.newChars()}> New Characters From Rick And Morty</button>
-            {this.state.characters.map((item) => { return <Card {...item} />}) } 
+            {this.state.characters.map((item) => { return <Card key={item.name } {...item} />}) } 
         </div>
         )
     }
