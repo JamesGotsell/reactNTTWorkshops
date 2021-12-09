@@ -6,9 +6,9 @@ class RickAndMorty extends Component {
         super(props);
 
         this.state = {
-            characters: []
-            // next https://rickandmortyapi.com/api/character?page=2
-        };
+            characters: [],
+            nextPage: ''
+            };
     }
     componentDidMount(){
          fetch('https://rickandmortyapi.com/api/character').then((resp) => resp.json())
@@ -16,7 +16,8 @@ class RickAndMorty extends Component {
           
             console.log(resp)
             this.setState({
-                characters: resp.results
+                characters: resp.results,
+                nextPage: resp.info.next
             })
         })
         
@@ -27,20 +28,22 @@ class RickAndMorty extends Component {
     }
     
     newChars = () => {
-        fetch('https://rickandmortyapi.com/api/character?page=2' + 1)
+        fetch(this.state.nextPage)
             .then(response => 
                 response.json()
             )
             .then(response => {
                 console.log(response)
                 this.setState({
-                    characters: response.results
+                    characters: response.results,
+                    nextPage: response.info.next
                 })
             })
             .catch(err => {
                 console.error(err);
             })
     }
+
    
     //  function to get next page of char
        // function that fectches new data onClick
